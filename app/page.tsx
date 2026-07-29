@@ -2,6 +2,8 @@ import Image from "next/image";
 import IconBar from "./components/IconBar";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Section from "./components/Section";
+
 
 export default function Home() {
   return (
@@ -9,6 +11,7 @@ export default function Home() {
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Header />
         <Hero />
+        <Section />
       </main>
     </div>
   );
