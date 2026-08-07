@@ -3,11 +3,10 @@
 import Image from "next/image";
 import img from "../img/tendry.png";
 import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "motion/react";
-import { Mail, Phone } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import type { ComponentType } from "react";
 
-import ReactNative from "../LogoSvg/react-native-firebase-1.svg";
+import ReactNative from "../LogoSvg/react-native-firebase-1.svg"; 
 import Node from "../LogoSvg/nodejs.svg";
 import FastAPI from "../LogoSvg/fastapi-1.svg";
 import Flask from "../LogoSvg/flask.svg";
