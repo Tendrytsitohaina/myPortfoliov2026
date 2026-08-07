@@ -8,7 +8,7 @@ import StickyProfile from "./components/StickyProfile";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100">
+    <div className="min-h-screen text-gray-900 transition-colors duration-300 dark:text-gray-100">
       <Header />
 
       <main className="pt-20 sm:pt-24">
