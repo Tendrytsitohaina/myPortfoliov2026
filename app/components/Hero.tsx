@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section
       id="accueil"
-      className="relative -mt-20 flex min-h-[calc(100vh-4rem)] items-center pt-20 pb-16 sm:pt-24 sm:pb-20"
+      className="relative flex items-center pt-20 pb-16 sm:pt-30 sm:pb-20"
     >
       {/* Dégradé de fond */}
       <div className="pointer-events-none absolute inset-0 -z-10">

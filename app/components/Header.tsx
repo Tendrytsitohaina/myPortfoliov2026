@@ -16,10 +16,10 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("#accueil");
   const shouldReduceMotion = useReducedMotion();
 
-  // Ferme le menu mobile avec Échap
+  // Ferme le menu mobile avec la touche Échap
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") setIsOpen(false);
@@ -28,7 +28,7 @@ export default function Header() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // Bloque le scroll de la page quand le menu mobile est ouvert
+  // Bloque le défilement de la page quand le menu mobile est ouvert
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
@@ -36,7 +36,7 @@ export default function Header() {
     };
   }, [isOpen]);
 
-  // Détecte la section visible pour surligner le lien actif
+  // Détecte la section visible pour surligner le lien actif au scroll
   useEffect(() => {
     const sections = navLinks
       .map((link) => document.querySelector(link.href))
@@ -61,18 +61,19 @@ export default function Header() {
     <div className="fixed top-0 left-0 right-0 z-50">
       <header className="border-b border-gray-200/80 bg-white/80 backdrop-blur-md transition-colors dark:border-gray-800/80 dark:bg-gray-950/80">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          
           {/* Logo / Nom */}
           <Link
             href="/"
             className="text-base font-bold tracking-tight text-gray-900 transition-colors dark:text-white sm:text-lg"
           >
             Tendry
-            <span className="text-gray-500 transition-colors dark:text-gray-400">
+            <span className="text-indigo-600 transition-colors dark:text-indigo-400">
               .dev
             </span>
           </Link>
 
-          {/* Navigation Desktop */}
+          {/* Navigation Desktop (Pilule active fluide) */}
           <nav className="relative hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
@@ -103,7 +104,7 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Actions : Theme toggle + bouton menu mobile */}
+          {/* Actions : Theme toggle + Bouton menu burger mobile */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <button
@@ -119,7 +120,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Menu Mobile déroulant */}
+        {/* Menu Mobile déroulant animé */}
         <AnimatePresence>
           {isOpen && (
             <motion.nav

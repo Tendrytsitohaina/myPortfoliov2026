@@ -63,11 +63,11 @@ export default function Contact() {
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3 border-t border-gray-100 pt-5 lg:justify-start dark:border-white/10">
                 
                 {/* Bouton principal "Me contacter" */}
-				<a
-					href="https://wa.me/261384666027"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:bg-gray-800 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                <a
+                  href="https://wa.me/261384666027"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:bg-gray-800 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                 >
                   <FaWhatsapp size={20} className="text-indigo-400 dark:text-indigo-600" />
                   WhatsApp
