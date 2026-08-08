@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/immutability */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -19,7 +20,7 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("#accueil");
   const shouldReduceMotion = useReducedMotion();
 
-  // Ferme le menu mobile avec la touche Échap
+  // Ferme le menu mobile avec Échap
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") setIsOpen(false);
@@ -28,15 +29,19 @@ export default function Header() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // Bloque le défilement de la page quand le menu mobile est ouvert
+  // Bloque le scroll uniquement si le menu est ouvert
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
-  // Détecte la section visible pour surligner le lien actif au scroll
+  // Détecte la section visible pour surligner le lien actif
   useEffect(() => {
     const sections = navLinks
       .map((link) => document.querySelector(link.href))
@@ -57,12 +62,35 @@ export default function Header() {
     return () => observer.disconnect();
   }, []);
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    setIsOpen(false);
+    document.body.style.overflow = ""; // Débloque immédiatement le scroll
+
+    // Petit délai de 150ms pour laisser le menu se fermer et scroller parfaitement
+    setTimeout(() => {
+      if (href === "#accueil") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    }, 150);
+  };
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       <header className="border-b border-gray-200/80 bg-white/80 backdrop-blur-md transition-colors dark:border-gray-800/80 dark:bg-gray-950/80">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          
-          {/* Logo / Nom */}
+          {/* Logo */}
           <Link
             href="/"
             className="text-base font-bold tracking-tight text-gray-900 transition-colors dark:text-white sm:text-lg"
@@ -73,7 +101,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Navigation Desktop (Pilule active fluide) */}
+          {/* Navigation Desktop */}
           <nav className="relative hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
@@ -81,6 +109,7 @@ export default function Header() {
                 <a
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                     isActive
                       ? "text-white dark:text-gray-900"
@@ -104,7 +133,7 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Actions : Theme toggle + Bouton menu burger mobile */}
+          {/* Actions : ThemeToggle + Bouton burger */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <button
@@ -120,7 +149,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Menu Mobile déroulant animé */}
+        {/* Menu Mobile déroulant */}
         <AnimatePresence>
           {isOpen && (
             <motion.nav
@@ -142,11 +171,13 @@ export default function Header() {
                       key={link.name}
                       initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -12 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: shouldReduceMotion ? 0 : index * 0.04 }}
+                      transition={{
+                        delay: shouldReduceMotion ? 0 : index * 0.04,
+                      }}
                     >
                       <a
                         href={link.href}
-                        onClick={() => setIsOpen(false)}
+                        onClick={(e) => handleNavClick(e, link.href)}
                         className={`block rounded-lg px-3.5 py-2.5 text-sm font-medium transition-colors ${
                           isActive
                             ? "bg-gray-900 text-white shadow-sm dark:bg-white dark:text-gray-900"
