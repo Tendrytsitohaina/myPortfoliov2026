@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
 
       <main className="pt-20 sm:pt-24">
-        <section className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-8 xl:grid-cols-[minmax(0,1fr)_360px]">
+        <section className="mx-auto grid max-w-8xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-8 xl:grid-cols-[minmax(0,1fr)_360px]">
           <div className="min-w-0">
             <Hero />
             <About />

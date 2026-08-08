@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	title: {
-		default: "Portfolio — TonNom",
+		default: "Tendry.dev",
 		template: "%s | TonNom",
 	},
-	description: "Portfolio de TonNom — développeur, projets et contact.",
-	authors: [{ name: "TonNom" }],
+	description: "Portfolio de Tendry Randriatsitohaina — développeur, projets et contact.",
+	authors: [{ name: "Tendry RANDRIATSITOHAINA" }],
 	metadataBase: new URL("https://example.com"),
 	openGraph: {
 		title: "Portfolio — TonNom",
@@ -88,7 +88,7 @@ export default function RootLayout({
 			<body className="min-h-full flex flex-col bg-gray-100 dark:bg-gray-950">
 				{children}
 				<div className="pointer-events-none fixed inset-0 -z-12">
-					<div className="absolute -right-80 -bottom-20 h-80 w-80 -translate-x-1/2 rounded-full bg-indigo-300/50 blur-3xl dark:bg-gray-800/40 sm:h-104 sm:w-104 lg:h-124 lg:w-124" />
+					<div className="absolute -right-80 -bottom-20 h-80 w-80 -translate-x-1/2 rounded-full bg-indigo-200/50 blur-3xl dark:bg-gray-800 sm:h-104 sm:w-104 lg:h-124 lg:w-124" />
 				</div>
 			</body>
 		</html>
