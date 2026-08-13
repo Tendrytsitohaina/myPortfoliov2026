@@ -97,7 +97,7 @@ export default function StickyProfile() {
 	const contactTranslateY = useTransform(scrollY, [0, 500], shouldReduceMotion ? [0, 0] : [300, 0]);
 
 	return (
-		<div className="hidden relative rounded-3xl lg:flex flex-col items-center justify-start px-2 pt-10 sm:px-4">
+		<div className="hidden relative rounded-3xl lg:flex flex-col items-center justify-start px-2 pt-15 sm:px-4">
 			<motion.div
 				initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.85, y: shouldReduceMotion ? 0 : 30 }}
 				animate={{ opacity: 1, scale: 1, y: 0 }}

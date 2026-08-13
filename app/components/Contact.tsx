@@ -11,7 +11,7 @@ export default function Contact() {
     <section id="contact" className="scroll-mt-20 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
         
-        <Reveal className="relative overflow-hidden rounded-3xl border  border-gray-200/80 bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/80 p-7 shadow-2xl shadow-gray-200/50 backdrop-blur-sm sm:p-10 lg:p-12 dark:border-gray-800/80 dark:bg-gradient-to-br dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 dark:shadow-none">
+        <Reveal className="relative overflow-hidden rounded-3xl border  border-gray-200/80 bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/80 p-5 shadow-2xl shadow-gray-200/50 backdrop-blur-sm sm:p-10 lg:p-12 dark:border-gray-800/80 dark:bg-gradient-to-br dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 dark:shadow-none">
           
           
           <div className="relative z-10 grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
@@ -32,7 +32,7 @@ export default function Contact() {
             </div>
 
             {/* Colonne droite : Carte des coordonnées & Réseaux */}
-            <div className="rounded-2xl border border-gray-200/80 bg-white/80 p-6 shadow-xs backdrop-blur-md sm:p-7 dark:border-white/10 dark:bg-white/5 dark:shadow-none">
+            <div className="rounded-2xl border border-gray-200/80 bg-white/80 p-4 shadow-xs backdrop-blur-md sm:p-7 dark:border-white/10 dark:bg-white/5 dark:shadow-none">
               
               {/* Coordonnées : Email & Téléphone */}
               <div className="space-y-4">
