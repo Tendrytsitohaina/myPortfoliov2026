@@ -1,11 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 
-import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Lock } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import Reveal from "./Reveal";
 
-const projects = [
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  github?: string;
+  demo?: string;
+  private: boolean;
+};
+
+const projects: Project[] = [
   {
     id: 1,
     title: "CarRental",
@@ -14,8 +25,8 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80",
     technologies: ["React", "Flask", "PostgreSQL"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    github: "https://github.com/Projet-ihm-Gr04/IHM.git",
+    private: false,
   },
   {
     id: 2,
@@ -25,8 +36,8 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=800&q=80",
     technologies: ["Next.js", "FastAPI", "Python"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    github: "https://github.com/Tendrytsitohaina/LinuxDigitalTwin.git",
+    private: false,
   },
   {
     id: 3,
@@ -36,8 +47,7 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80",
     technologies: ["React", "Laravel", "PostgreSQL"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    private: true,
   },
   {
     id: 4,
@@ -47,8 +57,7 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80",
     technologies: ["React Native", "Firebase"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    private: true,
   },
 ];
 
@@ -56,7 +65,8 @@ export default function Projects() {
   return (
     <section id="projects" className="scroll-mt-20 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* En-tête de section unifié */}
+        
+        {/* En-tête de section */}
         <Reveal className="mx-auto mb-14 max-w-2xl text-center">
           <p className="mb-2.5 text-xs font-bold uppercase tracking-[0.25em] text-indigo-600 dark:text-indigo-400">
             Portfolio
@@ -65,8 +75,8 @@ export default function Projects() {
             Mes projets récents
           </h2>
           <p className="mt-4 text-base leading-relaxed text-gray-600 dark:text-gray-300">
-            Découvrez quelques réalisations sur lesquelles j'ai travaillé et les
-            technologies utilisées pour concevoir des solutions concrètes et performantes.
+            Découvrez quelques réalisations concrètes sur lesquelles j'ai travaillé,
+            alliant interfaces soignées et architectures backend solides.
           </p>
         </Reveal>
 
@@ -75,7 +85,8 @@ export default function Projects() {
           {projects.map((project, index) => (
             <Reveal key={project.id} delay={index * 0.1}>
               <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200/80 bg-white/80 shadow-xs backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-gray-300 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900/80 dark:hover:border-gray-700">
-                {/* Conteneur Image & Actions au survol */}
+                
+                {/* Image du projet */}
                 <div className="relative h-56 w-full overflow-hidden bg-gray-100 dark:bg-gray-800 sm:h-64">
                   <img
                     src={project.image}
@@ -83,40 +94,66 @@ export default function Projects() {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
 
-                  {/* Voile assombri avec boutons d'action au survol */}
-                  <div className="absolute inset-0 flex items-center justify-center gap-3.5 bg-gray-950/60 opacity-0 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Code source GitHub de ${project.title}`}
-                      className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-gray-900 shadow-md transition-all duration-200 hover:scale-110 hover:bg-gray-900 hover:text-white"
-                    >
-                      <FaGithub size={19} />
-                    </a>
-                    {/* <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Voir la démo en ligne de ${project.title}`}
-                      className="flex h-11 w-11 items-center justify-center rounded-full bg-indigo-600 text-white shadow-md transition-all duration-200 hover:scale-110 hover:bg-indigo-500"
-                    >
-                      <ExternalLink size={19} />
-                    </a> */}
+                  {/* Badge discret sur l'image pour indiquer le statut (Public / Privé) */}
+                  <div className="absolute top-4 right-4">
+                    {project.private ? (
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-gray-200/80 bg-white/90 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/90 dark:text-gray-300">
+                        <Lock size={12} className="text-amber-500" />
+                        Privé
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-200/80 bg-white/90 px-3 py-1 text-xs font-semibold text-indigo-700 shadow-sm backdrop-blur-md dark:border-indigo-900/60 dark:bg-gray-900/90 dark:text-indigo-300">
+                        <span className="h-1.5 w-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400" />
+                        Open Source
+                      </span>
+                    )}
                   </div>
+
+                  {/* Overlay Desktop uniquement au hover */}
+                  {!project.private && project.github && (
+                    <div className="hidden lg:flex absolute inset-0 items-center justify-center bg-gray-950/50 opacity-0 backdrop-blur-2xs transition-opacity duration-300 group-hover:opacity-100">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Code source GitHub de ${project.title}`}
+                        className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-bold text-gray-900 shadow-md transition-transform duration-200 hover:scale-105 hover:bg-gray-100"
+                      >
+                        <FaGithub size={16} />
+                        Voir sur GitHub
+                      </a>
+                    </div>
+                  )}
                 </div>
 
                 {/* Contenu textuel */}
                 <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
                   <div>
-                    <div className="mb-3 flex items-center justify-between gap-4">
+                    {/* Ligne Titre + Lien d'action direct (Mobile & Desktop) */}
+                    <div className="mb-3 flex items-start justify-between gap-3">
                       <h3 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
                         {project.title}
                       </h3>
-                      <ArrowUpRight
-                        size={20}
-                        className="text-gray-400 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-indigo-600 dark:group-hover:text-indigo-400"
-                      />
+
+                      {/* Action directe : Lien GitHub si public, sinon badge privé */}
+                      {!project.private && project.github ? (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Accéder au GitHub de ${project.title}`}
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-gray-700 transition-all duration-200 hover:border-gray-900 hover:bg-gray-900 hover:text-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-white dark:hover:bg-white dark:hover:text-gray-900"
+                        >
+                          <FaGithub size={17} />
+                        </a>
+                      ) : (
+                        <div
+                          title="Projet universitaire / code privé"
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-gray-200/60 bg-gray-100/60 text-gray-400 dark:border-gray-800 dark:bg-gray-800/40 dark:text-gray-500"
+                        >
+                          <Lock size={15} />
+                        </div>
+                      )}
                     </div>
 
                     <p className="mb-6 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
@@ -126,12 +163,12 @@ export default function Projects() {
 
                   {/* Badges des technologies */}
                   <div className="flex flex-wrap gap-2 pt-2">
-                    {project.technologies.map((technology) => (
+                    {project.technologies.map((tech) => (
                       <span
-                        key={technology}
-                        className="rounded-xl border border-gray-200/80 bg-gray-50/80 px-3 py-1 text-xs font-semibold text-gray-700 shadow-2xs transition-colors dark:border-gray-700/80 dark:bg-gray-800/60 dark:text-gray-300"
+                        key={tech}
+                        className="rounded-xl border border-gray-200/80 bg-gray-50/80 px-3 py-1 text-xs font-semibold text-gray-700 shadow-2xs dark:border-gray-700/80 dark:bg-gray-800/60 dark:text-gray-300"
                       >
-                        {technology}
+                        {tech}
                       </span>
                     ))}
                   </div>
@@ -141,7 +178,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Bouton CTA "Voir plus" harmonisé */}
+        {/* Bouton CTA "Voir tous mes projets" */}
         <Reveal delay={0.2} className="mt-14 text-center">
           <a
             href="https://github.com/Tendrytsitohaina"

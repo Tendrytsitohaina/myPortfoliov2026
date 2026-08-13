@@ -23,7 +23,7 @@ const categories = [
   {
     title: "Outils",
     icon: Palette,
-    items: ["Canva", "Figma", "UI/UX basics", "Git"],
+    items: ["Canva", "UI/UX basics", "Git"],
     filigranne: "&Tools",
   },
 ];

@@ -5,7 +5,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download, Mail } from "lucide-react";
 import Reveal from "./Reveal";
 import imgProfile from "../img/tendry.png";
 
@@ -33,9 +33,9 @@ export default function Hero() {
           <Reveal className="mb-8 lg:hidden">
             <div className="relative flex flex-col items-center">
               {/* Cercle photo avec lueur */}
-              <div className="relative flex h-40 w-40 items-center justify-center rounded-3xl border border-gray-200/90 bg-white/90 p-1.5 shadow-xl backdrop-blur-xs sm:h-44 sm:w-44 dark:border-gray-800 dark:bg-gray-900/90">
+              <div className="relative flex h-60 w-60 items-center justify-center rounded-3xl border border-gray-200/90 bg-white/90 p-1.5 shadow-xl backdrop-blur-xs sm:h-44 sm:w-44 dark:border-gray-800 dark:bg-gray-900/90">
                 
-                <div className="absolute inset-2 rounded-2xl border border-dashed border-indigo-300/80 dark:border-indigo-500/40" />
+                <div className="absolute inset-2 rounded-full animate-[spin_30s_linear_infinite] border border-dashed border-indigo-300/80 dark:border-indigo-500/40" />
                 
                 <div className="relative h-full w-full overflow-hidden rounded-3xl">
                   <Image
@@ -82,11 +82,12 @@ export default function Hero() {
           </Reveal>
 
           {/* Boutons d'appel à l'action */}
-          <Reveal delay={0.3}>
-            <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3.5 sm:w-auto sm:flex-row sm:gap-4 lg:justify-start">
+          <Reveal delay={0.3} className="w-full">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+              {/* 1. Action principale */}
               <a
                 href="#projects"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 px-6 py-3.5 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:bg-gray-800 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-6 py-3.5 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:bg-gray-800 hover:shadow-md focus-visible:outline-2 focus-visible:outline-indigo-600 dark:bg-white dark:text-gray-300 dark:hover:bg-gray-100"
               >
                 Voir mes projets
                 <ArrowRight
@@ -96,11 +97,32 @@ export default function Hero() {
               </a>
 
               <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-xl border border-gray-300 bg-white/80 px-6 py-3.5 text-sm font-semibold text-gray-800 shadow-2xs backdrop-blur-xs transition-all duration-200 hover:border-gray-400 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:border-gray-700 dark:bg-transparent dark:text-gray-200 dark:hover:border-gray-600 dark:hover:bg-gray-800/60"
+                href="/cv.pdf"
+                download="CV_Tendry_tsitohaina.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50/80 px-4 py-3.5 text-sm font-semibold text-indigo-700 shadow-2xs backdrop-blur-xs transition-all duration-200 hover:border-indigo-300 hover:bg-indigo-100 hover:text-indigo-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:border-indigo-900/60 dark:bg-indigo-950/40 dark:text-indigo-300 dark:hover:border-indigo-700 dark:hover:bg-indigo-900/50 dark:hover:text-indigo-100"
               >
+                <Download
+                  size={16}
+                  className="text-indigo-600 transition-all duration-200 group-hover:-translate-y-0.5 dark:text-indigo-400"
+                />
+                Mon CV
+              </a>
+              
+              <a
+                href="#contact"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white/80 px-5 py-3.5 text-sm font-semibold text-gray-700 shadow-2xs backdrop-blur-xs transition-all duration-200 hover:border-gray-400 hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:border-gray-700 dark:bg-gray-900/60 dark:text-gray-200 dark:hover:border-gray-600 dark:hover:bg-gray-800/80 dark:hover:text-white"
+              >
+                <Mail
+                  size={16}
+                  className="text-gray-500 transition-colors group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                />
                 Me contacter
               </a>
+
+              {/* 3. Bouton d'accent : Télécharger mon CV (Style Indigo distinct & lumineux) */}
+              
             </div>
           </Reveal>
         </div>

@@ -25,7 +25,7 @@ export default function Contact() {
                 Discutons de votre prochain projet
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-gray-600 lg:mx-0 dark:text-gray-300">
-                Étudiant en L3, actuellement à la recherche d'un stage — et ouvert aux
+                Étudiant en L3, actuellement à la recherche d'un stage et ouvert aux
                 missions freelance ou collaborations sur des projets web et mobile.
                 N'hésitez pas à me contacter pour échanger.
               </p>
@@ -38,7 +38,7 @@ export default function Contact() {
               <div className="space-y-4">
                 <a
                   href="mailto:tendryrandriatsitohaina@email.com"
-                  className="group flex items-center justify-center gap-3 text-sm text-gray-700 transition-colors hover:text-indigo-600 lg:justify-start dark:text-gray-200 dark:hover:text-white"
+                  className="group flex items-center justify-start gap-3 text-sm text-gray-700 transition-colors hover:text-indigo-600 lg:justify-start dark:text-gray-200 dark:hover:text-white"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-indigo-100 bg-indigo-50 text-indigo-600 transition-colors group-hover:bg-indigo-600 group-hover:text-white dark:border-transparent dark:bg-white/10 dark:text-indigo-300 dark:group-hover:bg-indigo-600 dark:group-hover:text-white">
                     <Mail size={17} />
@@ -50,7 +50,7 @@ export default function Contact() {
 
                 <a
                   href="tel:+261384666027"
-                  className="group flex items-center justify-center gap-3 text-sm text-gray-700 transition-colors hover:text-indigo-600 lg:justify-start dark:text-gray-200 dark:hover:text-white"
+                  className="group flex items-center justify-start gap-3 text-sm text-gray-700 transition-colors hover:text-indigo-600 lg:justify-start dark:text-gray-200 dark:hover:text-white"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-indigo-100 bg-indigo-50 text-indigo-600 transition-colors group-hover:bg-indigo-600 group-hover:text-white dark:border-transparent dark:bg-white/10 dark:text-indigo-300 dark:group-hover:bg-indigo-600 dark:group-hover:text-white">
                     <Phone size={17} />
@@ -86,7 +86,7 @@ export default function Contact() {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com/in/tendry-randriatsitohaina"
+                  href="https://linkedin.com/in/tsitohaina-tendry-477521380"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Profil LinkedIn de Tendry"
