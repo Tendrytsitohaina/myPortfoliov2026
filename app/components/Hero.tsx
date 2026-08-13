@@ -97,7 +97,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="/cv.pdf"
+                href="/CV_Tendry_tsitohaina.pdf"
                 download="CV_Tendry_tsitohaina.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
