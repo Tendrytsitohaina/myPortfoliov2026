@@ -25,7 +25,7 @@ const projects: Project[] = [
     image:
       "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80",
     technologies: ["React", "Flask", "PostgreSQL"],
-    github: "https://github.com/Projet-ihm-Gr04/IHM.git",
+    github: "https://github.com/Tendrytsitohaina/gestion-location-voiture.git",
     private: false,
   },
   {
