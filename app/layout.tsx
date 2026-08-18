@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -170,6 +171,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-gray-100 transition-colors dark:bg-gray-950">
         {children}
 
+        <Analytics />
         {/* Halo d'ambiance d'arrière-plan */}
         <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
           <div className="absolute -bottom-20 -right-40 h-80 w-80 rounded-full bg-indigo-200/40 blur-3xl dark:bg-indigo-950/20 sm:h-96 sm:w-96 lg:h-[30rem] lg:w-[30rem]" />
