@@ -101,7 +101,7 @@ export default function Contact() {
         </Reveal>
 
         {/* Copyright en bas de page */}
-        <p className="mt-10 text-center text-xs font-medium text-gray-500 dark:text-gray-400">
+        <p className="mt-10 text-center text-xs font-medium text-gray-600 dark:text-gray-400">
           © {currentYear} Tendry Randriatsitohaina — Tous droits réservés.
         </p>
 
