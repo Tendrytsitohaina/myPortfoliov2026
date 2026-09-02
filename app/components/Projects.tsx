@@ -56,8 +56,9 @@ const projects: Project[] = [
       "Application mobile de guide touristique avec carte interactive et points d'intérêt enrichis selon la position de l'utilisateur.",
     image:
       "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80",
-    technologies: ["React Native", "Firebase"],
-    private: true,
+    technologies: ["Flutter", "Firebase"],
+    github: "https://github.com/Tendrytsitohaina/Guideo.git",
+    private: false,
   },
 ];
 

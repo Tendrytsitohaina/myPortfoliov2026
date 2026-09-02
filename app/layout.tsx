@@ -145,8 +145,8 @@ const jsonLd = {
     "UI/UX Design",
   ],
   sameAs: [
-    "https://github.com/Tendrytsitohaina", // ⚠️ Mettez votre vrai pseudo GitHub
-    "https://linkedin.com/in/tendry-randriatsitohaina", // ⚠️ Mettez votre vrai pseudo LinkedIn
+    "https://github.com/Tendrytsitohaina",
+    "https://linkedin.com/in/tendry-randriatsitohaina",
   ],
 };
 
