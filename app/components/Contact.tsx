@@ -86,7 +86,8 @@ export default function Contact() {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com/in/tsitohaina-tendry-477521380"
+                  // href="https://linkedin.com/in/tsitohaina-tendry-477521380"
+                  href="https://www.linkedin.com/in/tendry-randriatsitohaina-477521380"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Profil LinkedIn de Tendry"
