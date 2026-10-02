@@ -25,7 +25,7 @@ export default function Contact() {
                 Discutons de votre prochain projet
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-gray-600 lg:mx-0 dark:text-gray-300">
-                Étudiant en L3, actuellement à la recherche d'un stage et ouvert aux
+                Étudiant en L3, actuellement ouvert aux
                 missions freelance ou collaborations sur des projets web et mobile.
                 N'hésitez pas à me contacter pour échanger.
               </p>
