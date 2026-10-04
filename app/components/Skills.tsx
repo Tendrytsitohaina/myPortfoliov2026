@@ -17,7 +17,7 @@ const categories = [
   {
     title: "Base de données",
     icon: Database,
-    items: ["MySQL", "PostgreSQL", "Firebase"],
+    items: ["MySQL", "PostgreSQL", "Firebase","MongoDB"],
     filigranne: "Data",
   },
   {
