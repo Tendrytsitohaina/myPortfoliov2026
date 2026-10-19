@@ -76,7 +76,7 @@ export default function Hero() {
           <Reveal delay={0.2}>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg lg:mx-0 dark:text-gray-300">
               Développeur passionné par la création d'applications web et mobiles
-              modernes, performantes et intuitives. J'aime transformer des idées
+              modernes, performantes et intuitives et aussi le monde de DATA SCIENCE et IA. J'aime transformer des idées
               en solutions numériques concrètes.
             </p>
           </Reveal>
@@ -97,8 +97,8 @@ export default function Hero() {
               </a>
 
               <a
-                href="/CV_Tendry_tsitohaina.pdf"
-                download="CV_Tendry_tsitohaina.pdf"
+                href="/CV_Tendry_Randriatsitohaina.pdf"
+                download="CV_Tendry_Randriatsitohaina.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50/80 px-4 py-3.5 text-sm font-semibold text-indigo-700 shadow-2xs backdrop-blur-xs transition-all duration-200 hover:border-indigo-300 hover:bg-indigo-100 hover:text-indigo-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:border-indigo-900/60 dark:bg-indigo-950/40 dark:text-indigo-300 dark:hover:border-indigo-700 dark:hover:bg-indigo-900/50 dark:hover:text-indigo-100"

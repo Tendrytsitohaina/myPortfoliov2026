@@ -34,6 +34,16 @@ const educations = [
 // Expériences concrètes & Réalisations
 const experiences = [
   {
+    period: "Septembre - Decembre 2026",
+    tag: "Stage",
+    title: "Développeur web fullstack",
+    institution: "TANJAKAI Madagascar",
+    description:
+      "Conception et développement d'une application web complète pour mettre en place une portail collaborateur unique pour fédéder les services internes du groupe (Next.js, express.js, FastAPI pour l'automatisation IA, MongoDB), Methologie Agile SCRUM",
+    icon: Award,
+    current: true
+  },
+  {
     period: "Juillet 2026",
     tag: "Concours",
     title: "3e place – Concours Devhunt",
@@ -41,6 +51,7 @@ const experiences = [
     description:
       "Récompensé à la 3e place sur un défi intensif : conception et livraison d'une solution numérique fonctionnelle en temps limité.",
     icon: Award,
+    current: false,
   },
   {
     period: "2025",
@@ -50,6 +61,7 @@ const experiences = [
     description:
       "Conception et développement d'une application web complète pour la gestion des ouvrages, mémoires et abonnés (React, Laravel, PostgreSQL).",
     icon: Briefcase,
+    current: false,
   },
 ];
 
@@ -82,7 +94,7 @@ export default function About() {
             <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
               Je prends en charge le cycle complet de création logicielle : développement d'interfaces
               réactives (React, Next.js), conception d'APIs robustes (Node.js, Laravel, FastAPI),
-              intégration de bases de données (PostgreSQL, MySQL) et travail d'équipe.
+              intégration de bases de données (PostgreSQL, MySQL, MongoDB) et travail d'équipe.
             </p>
           </div>
         </Reveal>
@@ -187,13 +199,20 @@ export default function About() {
                       </div>
 
                       <div className="flex-1 rounded-2xl border border-gray-200/70 bg-gray-50/60 p-4 transition-colors hover:border-gray-300 dark:border-gray-800/80 dark:bg-gray-800/40 dark:hover:border-gray-700">
-                        <div className="mb-1.5 flex items-center gap-2">
+                        <div className="mb-1.5 flex items-center gap-1">
                           <span className="rounded-md bg-white px-2 py-0.5 text-[11px] font-bold text-gray-600 shadow-2xs dark:bg-gray-800 dark:text-gray-300">
                             {exp.period}
                           </span>
-                          <span className="rounded-md bg-indigo-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300">
-                            {exp.tag}
-                          </span>
+                          <div className="flex flex-col gap-1 items-center justify-between">
+                            <span className="rounded-md bg-indigo-50 px-1 py-0.5 text-[10px] font-bold uppercase tracking-wider text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300">
+                              {exp.tag}
+                            </span>
+                            {exp.current && 
+                              <span className="whitespace-nowrap rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
+                                en cours
+                              </span>
+                            }
+                          </div>
                         </div>
 
                         <h4 className="text-sm font-bold text-gray-900 dark:text-white">
